@@ -12,8 +12,8 @@ const app = express()
 // db
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: true,
+    // useCreateIndex: true,
+    // useFindAndModify: true,
 })
 .then(()=> console.log("DB CONNECTED"))
 .catch(err => console.log(`DB CONNECTION ERROR ${err}`))
@@ -26,7 +26,7 @@ app.use(cors())
 // routes
 app.get("/api", (req, res) => {
     res.json({
-        data: "Hey you git node API",
+        data: "Hey you hit node API",
     })
 })
 
