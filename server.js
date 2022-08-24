@@ -29,3 +29,8 @@ app.get("/api", (req, res) => {
         data: "Hey you git node API",
     })
 })
+
+// port
+const port = process.env.PORT;
+
+app.listen(port, ()=> console.log(`Server is listening on ${port}`))
