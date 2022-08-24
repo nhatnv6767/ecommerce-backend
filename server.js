@@ -20,3 +20,12 @@ mongoose.connect(process.env.DATABASE, {
 
 // middlewares
 app.use(morgan("dev"))
+app.use(bodyParser.json({limit: "5mb"}))
+app.use(cors())
+
+// routes
+app.get("/api", (req, res) => {
+    res.json({
+        data: "Hey you git node API",
+    })
+})
