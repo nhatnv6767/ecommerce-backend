@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const fs = require('fs')
+const {readdirSync} = require('fs')
 require("dotenv").config()
 
 
@@ -27,7 +27,7 @@ app.use(cors())
 
 // routes middleware
 
-fs.readdirSync("./routes").map((r)=>
+readdirSync("./routes").map((r)=>
     app.use("/api", require('./routes/' + r))
 )
 
