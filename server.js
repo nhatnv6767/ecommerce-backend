@@ -6,7 +6,6 @@ const cors = require('cors')
 const fs = require('fs')
 require("dotenv").config()
 
-const authRoutes = require('./routes/auth')
 
 // app
 
@@ -27,8 +26,10 @@ app.use(bodyParser.json({limit: "5mb"}))
 app.use(cors())
 
 // routes middleware
-app.use("/api", authRoutes)
-fs.readdirSync("./routes").map((r)=> app.use(require('./routes/' + r)))
+
+fs.readdirSync("./routes").map((r)=>
+    app.use("/api", require('./routes/' + r))
+)
 
 // port
 const port = process.env.PORT;
