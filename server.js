@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 require("dotenv").config()
 
-con authRoutes = require('./routes/auth')
+const authRoutes = require('./routes/auth')
 
 // app
 
