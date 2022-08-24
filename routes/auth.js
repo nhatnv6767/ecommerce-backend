@@ -8,6 +8,7 @@ const {createOrUpdateUser} = require("../controllers/auth")
 // for example
 const myMiddleware = (req, res, next) => {
     console.log("IM A MIDDLEWARE YAY")
+    next();
 }
 
 router.post("/create-or-update-user", authCheck, createOrUpdateUser)
