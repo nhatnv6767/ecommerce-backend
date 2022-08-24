@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const fs = require('fs')
 require("dotenv").config()
 
 const authRoutes = require('./routes/auth')
@@ -27,6 +28,7 @@ app.use(cors())
 
 // routes middleware
 app.use("/api", authRoutes)
+fs.readdirSync("./routes").map((r)=> app.use(require('./routes/' + r)))
 
 // port
 const port = process.env.PORT;
