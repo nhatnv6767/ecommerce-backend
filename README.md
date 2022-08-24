@@ -1,0 +1,1 @@
+-> go to project in firebase, choose project, goto project setting, generate new private key
