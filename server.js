@@ -26,7 +26,7 @@ app.use(cors())
 // routes
 app.get("/api", (req, res) => {
     res.json({
-        data: "Hey you hit node API",
+        data: "Hey you hit node API updated",
     })
 })
 
