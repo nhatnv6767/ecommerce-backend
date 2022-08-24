@@ -15,5 +15,8 @@ mongoose.connect(process.env.DATABASE, {
     useCreateIndex: true,
     useFindAndModify: true,
 })
-.then()
+.then(()=> console.log("DB CONNECTED"))
 .catch(err => console.log(`DB CONNECTION ERROR ${err}`))
+
+// middlewares
+app.use(morgan("dev"))
