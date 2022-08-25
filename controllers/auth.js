@@ -1,8 +1,13 @@
+const User = require("../models/user")
 
 
+exports.createOrUpdateUser = async (req, res) => {
+    const {name, picture, email} = req.user;
 
-exports.createOrUpdateUser = (req, res) => {
-    res.json({
-        data: "Hey you hit create-or-update-user API endpoint",
+    const user = await User.findOneAndUpdate({email: email}, {
+        name,
+        picture,
+    }, {
+        new: true,
     })
 }
