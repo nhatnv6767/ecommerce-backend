@@ -10,4 +10,13 @@ exports.createOrUpdateUser = async (req, res) => {
     }, {
         new: true,
     })
+
+    if (user) {
+        res.json(user)
+    } else {
+        const newUser = await new User({
+            email, name, picture,
+        }).save()
+        res.json(newUser)
+    }
 }
